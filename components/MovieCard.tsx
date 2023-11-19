@@ -2,8 +2,7 @@ import  { useCallback } from 'react';
 import React from 'react';
 import { useRouter } from 'next/router';
 import { AiOutlineDown  } from "react-icons/ai";
-import { FaChevronRight } from "react-icons/fa";
-
+import { HiPlay } from "react-icons/hi2";
 
 
 
@@ -76,20 +75,20 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
           ">
           <div className="flex flex-row items-center gap-3">
             <div onClick={redirectToWatch} className="cursor-pointer w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full flex justify-center items-center transition hover:bg-neutral-300">
-              <FaChevronRight  className="text-black w-4 lg:w-6" />
+              <HiPlay  className="text-black w-4 lg:w-6" />
             </div>
             <FavoriteButton movieId={data.id} />
             <div onClick={() => openModal(data?.id)} className="cursor-pointer ml-auto group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-neutral-300">
               <AiOutlineDown className="text-white group-hover/item:text-neutral-300 w-4 lg:w-6" />
             </div>
           </div>
-          <p className="text-green-400 font-semibold mt-4">
-            New <span className="text-white">2023</span>
+          <p className="text-white font-semibold mt-4">
+            {data.title}
           </p>
           <div className="flex flex-row mt-4 gap-2 items-center"> 
             <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>
           </div>
-          <div className="flex flex-row items-center gap-2 mt-4 text-[8px] text-white lg:text-sm">
+          <div className="flex flex-row items-center gap-2 mt-4 text-[8px] text-green-400 lg:text-sm">
             <p>{data.genre}</p>
           </div>
         </div>
